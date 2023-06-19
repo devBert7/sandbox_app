@@ -1,7 +1,7 @@
 import "./expenseForm.css";
 import {useState} from "react";
 
-const ExpenseForm = () => {
+const ExpenseForm = ({onSaveExpenseData}) => {
     const [enteredTitle, setEnteredTitle] = useState(''),
         [enteredAmount, setEnteredAmount] = useState(''),
         [enteredDate, setEnteredDate] = useState('');
@@ -19,11 +19,18 @@ const ExpenseForm = () => {
     };
     
     const submitHandler = (event) => {
+        event.preventDefault();
+        
         const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
             date: new Date(enteredDate)
         };
+        
+        onSaveExpenseData(expenseData);
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
     };
     
     return (
