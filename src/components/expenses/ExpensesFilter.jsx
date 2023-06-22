@@ -9,7 +9,7 @@ const ExpensesFilter = ({onFilterChange, selectedYear}) => {
     const dropdownChangeHandler = (event) => {
         onFilterChange(event.target.value);
     }
-    
+
     return (
         <div className='expenses-filter'>
             <div className='expenses-filter__control'>
